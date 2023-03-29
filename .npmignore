@@ -1,0 +1,7 @@
+__macro__
+__helper__
+__fixture__
+node_modules
+pnpm-lock.yaml
+
+*.ts

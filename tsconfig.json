@@ -1,0 +1,16 @@
+{
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "baseUrl": "src",
+    "target": "es2020",
+    "module": "esnext",
+    "moduleResolution": "node", // PostCSS and TailwindCSS types would not be resolved properly if set to node16
+    "allowSyntheticDefaultImports": true,
+    "strict": true
+  },
+  "ts-node": {
+    "preferTsExts": true,
+    "transpileOnly": true
+  }
+}

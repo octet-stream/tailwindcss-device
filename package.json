@@ -1,0 +1,37 @@
+{
+  "type": "module",
+  "name": "tailwind-plugin-device",
+  "description": "Tailwind plugin to detect device input type",
+  "version": "0.1.0",
+  "author": "Nick K.",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./plugin.js"
+    },
+    "./variants.js": null,
+    "./variants": null,
+    "./entries.js": null,
+    "./entries": null
+  },
+  "scripts": {
+    "test": "ava"
+  },
+  "keywords": [
+    "tailwindcss",
+    "plugin",
+    "postcss"
+  ],
+  "devDependencies": {
+    "@types/node": "^18.15.11",
+    "ava": "^5.2.0",
+    "postcss": "8.4.21",
+    "tailwindcss": "3.3.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
+  },
+  "peerDependencies": {
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.3.0"
+  }
+}

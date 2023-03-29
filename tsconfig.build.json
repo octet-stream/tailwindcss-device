@@ -1,0 +1,7 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": ["node_modules", "src/**/__macro__/**/*.ts", "./src/**/*.test.ts"],
+  "compilerOptions": {
+    "moduleResolution": "node16"
+  }
+}
