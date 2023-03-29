@@ -1,16 +1,16 @@
 {
-  "include": ["**/*.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "baseUrl": "src",
-    "target": "es2020",
+    "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "node", // PostCSS and TailwindCSS types would not be resolved properly if set to node16
-    "allowSyntheticDefaultImports": true,
     "strict": true,
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
     "outDir": "lib",
-    "removeComments": true,
-    "declaration": false
+    "removeComments": true
   },
   "ts-node": {
     "preferTsExts": true,

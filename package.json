@@ -5,20 +5,19 @@
   "version": "0.1.0",
   "author": "Nick K.",
   "license": "MIT",
+  "source": "src/device.ts",
+  "main": "./lib/device.cjs",
+  "module": "./lib/device.js",
+  "types": "./lib/device.d.ts",
   "exports": {
-    ".": {
-      "import": "./lib/device.js",
-      "types": "./lib/device.d.ts"
-    },
-    "./lib/variants.js": null,
-    "./lib/variants": null,
-    "./lib/entries.js": null,
-    "./lib/entries": null
+    "import": "./lib/device.js",
+    "require": "./lib/device.cjs",
+    "types": "./lib/device.d.ts"
   },
   "scripts": {
     "test": "ava",
     "cleanup": "del-cli lib",
-    "build": "tsc --project tsconfig.build.json && tsc --project tsconfig.d.ts.json",
+    "build": "microbundle build --tsconfig tsconfig.build.json --target node --format es,cjs --generateTypes false && tsc --project tsconfig.d.ts.json",
     "prepublishOnly": "npm run cleanup && npm run build"
   },
   "keywords": [
@@ -38,5 +37,8 @@
   "peerDependencies": {
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.0"
+  },
+  "dependencies": {
+    "microbundle": "^0.15.1"
   }
 }

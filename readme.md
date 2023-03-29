@@ -27,9 +27,9 @@ yarn add tailwind-plugin-device
 1. Add plugin to your `tailwind.config.js` plugins section:
 
 ```ts
-import device from "tailwind-plugin-device"
+const device = require("tailwind-plugin-device")
 
-export default {
+module.exports = {
   plugins: [
     device
     // ...
