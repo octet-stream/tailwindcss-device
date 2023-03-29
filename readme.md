@@ -49,3 +49,12 @@ export default {
   </div>
 <div>
 ```
+
+### Available variants
+
+| Name          | Target                                                                         |
+|---------------|--------------------------------------------------------------------------------|
+| touch         | Devices with touchscreen as primary input method (e.g smartphones and tablets) |
+| desktop       | Computers with a mouse                                                         |
+| desktop-touch | Computers with touch input device                                              |
+| desktop-any   | Computers with or without touch input device                                   |
