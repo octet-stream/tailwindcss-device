@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "tailwind-plugin-device",
-  "description": "Tailwind plugin to detect device input type",
+  "description": "TailwindCSS plugin to add variants for input device detection using `@media` queries",
   "version": "0.1.0",
   "author": "Nick K.",
   "license": "MIT",
