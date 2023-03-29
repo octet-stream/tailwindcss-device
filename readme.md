@@ -1,6 +1,6 @@
 # tailwind-plugin-device
 
-TailwindCSS plugin to add variants for input device detection using `@media` queries
+TailwindCSS plugin to add variants for input device detection using [`@media`](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries) queries
 
 ## Installation
 
@@ -50,7 +50,7 @@ export default {
 <div>
 ```
 
-### Available variants
+## Available variants
 
 | Name          | Target                                                                         |
 |---------------|--------------------------------------------------------------------------------|
@@ -58,3 +58,10 @@ export default {
 | desktop       | Computers with a mouse                                                         |
 | desktop-touch | Computers with touch input device                                              |
 | desktop-any   | Computers with or without touch input device                                   |
+
+## Useful links
+
+* [Media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries) reference documentation on MDN
+* [Using media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) documentation on MDN
+* [`any-pointer`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/any-pointer) media feature documentation on MDN
+* [`pointer`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/pointer) media feature documentation on MDN
