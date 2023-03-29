@@ -7,15 +7,19 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "import": "./plugin.js"
+      "import": "./lib/device.js",
+      "types": "./lib/device.d.ts"
     },
-    "./variants.js": null,
-    "./variants": null,
-    "./entries.js": null,
-    "./entries": null
+    "./lib/variants.js": null,
+    "./lib/variants": null,
+    "./lib/entries.js": null,
+    "./lib/entries": null
   },
   "scripts": {
-    "test": "ava"
+    "test": "ava",
+    "cleanup": "del-cli lib",
+    "build": "tsc --project tsconfig.build.json && tsc --project tsconfig.d.ts.json",
+    "prepublishOnly": "npm run cleanup && npm run build"
   },
   "keywords": [
     "tailwindcss",
@@ -25,6 +29,7 @@
   "devDependencies": {
     "@types/node": "^18.15.11",
     "ava": "^5.2.0",
+    "del-cli": "^5.0.0",
     "postcss": "8.4.21",
     "tailwindcss": "3.3.0",
     "ts-node": "^10.9.1",

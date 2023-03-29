@@ -10,7 +10,7 @@ import postcss, {AtRule} from "postcss"
 
 import tailwind from "tailwindcss"
 
-import plugin from "../plugin.js"
+import device from "../device.js"
 
 import {variants} from "../variants.js"
 
@@ -47,7 +47,7 @@ export const withTransform = test.macro(async (t, impl: Implementation) => {
   const html = String.raw
 
   const transform: Transform = (input, config) => {
-    config.plugins = [...(config.plugins ?? []), plugin]
+    config.plugins = [...(config.plugins ?? []), device]
 
     return postcss(tailwind(config))
       .process(input, {
@@ -57,10 +57,13 @@ export const withTransform = test.macro(async (t, impl: Implementation) => {
 
   const {expected, actual} = await impl(transform, html, css)
 
+  const nodes = [...actual.root.nodes].filter(node => node instanceof AtRule)
+
   t.plan(expected.length * 5)
-  for (const [index, node] of actual.root.nodes.entries()) {
+  for (const [index, node] of nodes.entries()) {
+    // These 3 lines unreachable, only necessary as type guard
     if (!(node instanceof AtRule)) {
-      return t.fail(`Expected at-rule node. Got: ${node.type}`)
+      return t.fail(`Expected AtRule node. Got ${node.type}`)
     }
 
     const expectations = expected[index]
@@ -70,8 +73,12 @@ export const withTransform = test.macro(async (t, impl: Implementation) => {
 
     const raws = node.raws.tailwind as TailwindRaws
 
-    t.is(raws.layer, "variants")
-    t.is(raws.parentLayer, "utilities")
-    t.is(raws.candidate.split(":")[0], `device-${expectations.name}`)
+    t.is(raws.layer, "variants", "Should be applied to variants layer")
+    t.is(raws.parentLayer, "utilities", "Should be at utilities parent layer")
+    t.true(
+      raws.candidate.startsWith(`device-${expectations.name}`),
+
+      "Selector should start with device's variant name"
+    )
   }
 })
