@@ -9,6 +9,8 @@ import {variants} from "./variants.js"
  *
  * It when wraps followed styles with `@media` query accordingly to the variant.
  *
+ * @api public
+ *
  * @example
  *
  * 1. Add plugin to your `tailwind.config.js` plugins section:
