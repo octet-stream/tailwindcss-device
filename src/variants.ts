@@ -1,20 +1,37 @@
+/**
+ * @api private
+ */
 type ParamNames = "pointer" | "any-pointer"
 
+/**
+ * @api private
+ */
 type ParamValues = "none" | "fine" | "coarse"
 
+/**
+ * @api private
+ */
 type CompileParamResult<TName extends ParamNames, TValue extends ParamValues>
-  = `(${TName}: ${TValue})`
+  = `${TName}: ${TValue}`
 
 /**
+ * Creates a parameter for `@media` query at-rule.
+ *
  * @api private
  */
 const compileParam = <TName extends ParamNames, TValue extends ParamValues>(
   name: TName,
   value: TValue
-): CompileParamResult<TName, TValue> => `(${name}: ${value})`
+): CompileParamResult<TName, TValue> => `${name}: ${value}`
 
+/**
+ * @api private
+ */
 type CombineParamsOperators = "and" | "or"
 
+/**
+ * @api private
+ */
 type CombineParamsResult<
   TLeft extends string,
   TRight extends string,
@@ -22,6 +39,8 @@ type CombineParamsResult<
 > = `${TLeft} ${TOp} ${TRight}`
 
 /**
+ * Combines two `@media` query parameters together, applies given operator.
+ *
  * @api private
  */
 const combineParams = <
@@ -34,24 +53,52 @@ const combineParams = <
   op: TOp
 ): CombineParamsResult<TLeft, TRight, TOp> => `${left} ${op} ${right}`
 
+/**
+ * @api private
+ */
 type AddParenthesesResult<T extends string> = `(${T})`
 
+/**
+ * Adds parentheses to given parameter
+ *
+ * @api private
+ */
 const addParentheses = <T extends string>(
   value: T
 ): AddParenthesesResult<T> => `(${value})`
 
-const touch = compileParam("pointer", "coarse")
+/**
+ * Matches touchscreen input device
+ *
+ * @api private
+ */
+const touch = addParentheses(compileParam("pointer", "coarse"))
 
-const desktop = compileParam("pointer", "fine")
+/**
+ * Matches mouse input device
+ *
+ * @api private
+ */
+const desktop = addParentheses(compileParam("pointer", "fine"))
 
+/**
+ * Matches device with mouse and touchscreen
+ *
+ * @api private
+ */
 const desktopTouch = combineParams(
   desktop,
 
-  compileParam("any-pointer", "coarse"),
+  addParentheses(compileParam("any-pointer", "coarse")),
 
   "and"
 )
 
+/**
+ * Matches device with mouse and/or touchscreen
+ *
+ * @api private
+ */
 const desktopAny = combineParams(
   desktop,
 
@@ -60,9 +107,14 @@ const desktopAny = combineParams(
   "or"
 )
 
-export const variants = {
+/**
+ * Available device variants
+ *
+ * @api private
+ */
+export const variants = Object.freeze({
   touch,
   desktop,
   "desktop-touch": desktopTouch,
   "desktop-any": desktopAny
-} as const
+})
