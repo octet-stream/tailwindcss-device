@@ -93,7 +93,7 @@ const desktop = combineParams(
  * @api private
  */
 const desktopTouch = combineParams(
-  compileParam("pointer", "fine"),
+  addParentheses(compileParam("pointer", "fine")),
 
   addParentheses(compileParam("any-pointer", "coarse")),
 
