@@ -106,7 +106,7 @@ const desktopTouch = combineParams(
  * @api private
  */
 const desktopAny = combineParams(
-  desktop,
+  addParentheses(desktop),
 
   addParentheses(desktopTouch),
 
