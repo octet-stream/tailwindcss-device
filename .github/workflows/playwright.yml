@@ -33,11 +33,11 @@ jobs:
         node-version: 18
 
     - name: Setup pnpm
-        id: pnpm-install
-        uses: pnpm/action-setup@v2
-        with:
-          version: 7
-          run_install: false
+      id: pnpm-install
+      uses: pnpm/action-setup@v2
+      with:
+        version: 7
+        run_install: false
 
     - name: Get pnpm store directory
       id: pnpm-cache
