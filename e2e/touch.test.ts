@@ -1,12 +1,6 @@
-import {expect, devices} from "@playwright/test"
+import {expect} from "@playwright/test"
 
 import {test, setup, teardown} from "./__helper__/hooks.js"
-
-test.use({
-  ...devices["iPhone 12 Pro"],
-  ...devices["Pixel 5"],
-  ...devices["iPad Pro 11"]
-})
 
 test.beforeAll(setup)
 
@@ -25,7 +19,15 @@ test("2nd <div> element is invisible on touchscreen device", async ({page}) => {
 })
 
 test("3rd <div> element is invisible on touchscreen device", async ({page}) => {
-  const element = page.getByText("Hello! I'm visible on desktop with touchscreen!")
+  const element = page.getByText(
+    "Hello! I'm visible on desktop with touchscreen!"
+  )
+
+  await expect(element).toBeHidden()
+})
+
+test("4th <div> element is invisible on touchscreen device", async ({page}) => {
+  const element = page.getByText("Hello! I'm visible on any desktop!")
 
   await expect(element).toBeHidden()
 })

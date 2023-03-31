@@ -25,10 +25,52 @@ export default defineConfig({
   reporter: "html",
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* Base URL to use in actions like `await page.goto("/")`. */
-    // baseURL: "http://127.0.0.1:3000",
-
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "on-first-retry",
   },
+  projects: [
+    {
+      name: "Mobile Chrome",
+      testMatch: "touch.test.ts",
+      use: {
+        ...devices["Pixel 5"]
+      }
+    },
+    {
+      name: "Mobile Safari",
+      testMatch: "touch.test.ts",
+      use: {
+        ...devices["iPhone 12 Pro"]
+      }
+    },
+
+    {
+      name: "Desktop Chrome",
+      testMatch: "desktop.test.ts",
+      use: {
+        ...devices["Desktop Chrome"]
+      }
+    },
+    {
+      name: "Desktop Safari",
+      testMatch: "desktop.test.ts",
+      use: {
+        ...devices["Desktop Safari"]
+      }
+    },
+    {
+      name: "Desktop Firefox",
+      testMatch: "desktop.test.ts",
+      use: {
+        ...devices["Desktop Firefox"]
+      }
+    },
+    {
+      name: "Desktop Edge",
+      testMatch: "desktop.test.ts",
+      use: {
+        ...devices["Desktop Edge"]
+      }
+    },
+  ]
 })
