@@ -7,17 +7,17 @@
   "license": "MIT",
   "source": "src/device.ts",
   "main": "./lib/device.cjs",
-  "module": "./lib/device.js",
+  "module": "./lib/device.mjs",
   "types": "./lib/device.d.ts",
   "exports": {
-    "import": "./lib/device.js",
+    "import": "./lib/device.mjs",
     "require": "./lib/device.cjs",
     "types": "./lib/device.d.ts"
   },
   "scripts": {
     "test": "ava",
     "cleanup": "del-cli lib",
-    "build": "microbundle build --tsconfig tsconfig.build.json --target node --format es,cjs --generateTypes false && tsc --project tsconfig.d.ts.json && del-cli lib/entries.d.ts lib/variants.d.ts",
+    "build": "microbundle build --no-sourcemap --tsconfig tsconfig.build.json --target node --format es,cjs --generateTypes false && tsc --project tsconfig.d.ts.json && del-cli lib/entries.d.ts lib/variants.d.ts",
     "prepublishOnly": "npm run cleanup && npm run build"
   },
   "keywords": [
@@ -26,6 +26,7 @@
     "postcss"
   ],
   "devDependencies": {
+    "@playwright/test": "^1.32.1",
     "@types/node": "^18.15.11",
     "ava": "^5.2.0",
     "del-cli": "^5.0.0",

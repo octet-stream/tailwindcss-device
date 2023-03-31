@@ -8,3 +8,6 @@ node_modules
 coverage
 
 /lib
+/.e2e-results/
+/playwright-report/
+/playwright/.cache/

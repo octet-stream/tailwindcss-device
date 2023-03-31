@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@playwright/test': ^1.32.1
   '@types/node': ^18.15.11
   ava: ^5.2.0
   del-cli: ^5.0.0
@@ -14,6 +15,7 @@ dependencies:
   microbundle: 0.15.1_ts-node@10.9.1
 
 devDependencies:
+  '@playwright/test': 1.32.1
   '@types/node': 18.15.11
   ava: 5.2.0
   del-cli: 5.0.0
@@ -1373,6 +1375,17 @@ packages:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
+    dev: true
+
+  /@playwright/test/1.32.1:
+    resolution: {integrity: sha512-FTwjCuhlm1qHUGf4hWjfr64UMJD/z0hXYbk+O387Ioe6WdyZQ+0TBDAc6P+pHjx2xCv1VYNgrKbYrNixFWy4Dg==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dependencies:
+      '@types/node': 18.15.11
+      playwright-core: 1.32.1
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: true
 
   /@rollup/plugin-alias/3.1.9_rollup@2.79.1:
@@ -3663,6 +3676,12 @@ packages:
     dependencies:
       find-up: 4.1.0
     dev: false
+
+  /playwright-core/1.32.1:
+    resolution: {integrity: sha512-KZYUQC10mXD2Am1rGlidaalNGYk3LU1vZqqNk0gT4XPty1jOqgup8KDP8l2CUlqoNKhXM5IfGjWgW37xvGllBA==}
+    engines: {node: '>=14'}
+    hasBin: true
+    dev: true
 
   /plur/5.1.0:
     resolution: {integrity: sha512-VP/72JeXqak2KiOzjgKtQen5y3IZHn+9GOuLDafPv0eXa47xq0At93XahYBs26MsifCQ4enGKwbjBTKgb9QJXg==}
