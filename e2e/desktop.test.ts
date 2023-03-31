@@ -30,7 +30,7 @@ test(
   }
 )
 
-test("4th <div> element is invisible on touchscreen device", async ({page}) => {
+test("4th <div> element is invisible on any desktop device", async ({page}) => {
   const element = page.getByText("Hello! I'm visible on any desktop!")
 
   await expect(element).toHaveCSS("display", "block")

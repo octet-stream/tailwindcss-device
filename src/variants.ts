@@ -79,7 +79,13 @@ const touch = addParentheses(compileParam("pointer", "coarse"))
  *
  * @api private
  */
-const desktop = addParentheses(compileParam("pointer", "fine"))
+const desktop = combineParams(
+  addParentheses(compileParam("pointer", "fine")),
+
+  addParentheses(compileParam("pointer", "none")),
+
+  "or"
+)
 
 /**
  * Matches device with mouse and touchscreen
@@ -87,7 +93,7 @@ const desktop = addParentheses(compileParam("pointer", "fine"))
  * @api private
  */
 const desktopTouch = combineParams(
-  desktop,
+  compileParam("pointer", "fine"),
 
   addParentheses(compileParam("any-pointer", "coarse")),
 
