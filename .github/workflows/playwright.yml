@@ -21,7 +21,7 @@ on:
       - "pnpm-lock.yaml"
       - ".github/workflows/playwright.yml"
 jobs:
-  test:
+  e2e:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -45,8 +45,8 @@ jobs:
       run: |
         echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-    - uses: actions/cache@v3
-      name: Setup pnpm cache
+    - name: Setup pnpm cache
+      uses: actions/cache@v3
       with:
         path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
         key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
