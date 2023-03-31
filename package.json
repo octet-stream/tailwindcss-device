@@ -15,6 +15,7 @@
     "types": "./lib/device.d.ts"
   },
   "scripts": {
+    "lint:types": "tsc --project tsconfig.build.json --noEmit",
     "test": "ava",
     "cleanup": "del-cli lib",
     "build": "microbundle build --no-sourcemap --tsconfig tsconfig.build.json --target node --format es,cjs --generateTypes false && tsc --project tsconfig.d.ts.json && del-cli lib/entries.d.ts lib/variants.d.ts",
