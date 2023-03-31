@@ -2,8 +2,24 @@ name: Playwright Tests
 on:
   push:
     branches: [main]
+    paths:
+      - "**.ts"
+      - "**.tsx"
+      - "tsconfig.json"
+      - "tsconfig.build.json"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/playwright.yml"
   pull_request:
     branches: [main]
+    paths:
+      - "**.ts"
+      - "**.tsx"
+      - "tsconfig.json"
+      - "tsconfig.build.json"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - ".github/workflows/playwright.yml"
 jobs:
   test:
     timeout-minutes: 60
@@ -14,7 +30,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: 16
+        node-version: 18
 
     - name: Setup pnpm
         id: pnpm-install
@@ -39,6 +55,9 @@ jobs:
 
     - name: Install dependencies
       run: pnpm i --frozen-lockfile
+
+    - name: Build package
+    - run: pnpm build
 
     - name: Install Playwright Browsers
       run: pnpm exec playwright install --with-deps
