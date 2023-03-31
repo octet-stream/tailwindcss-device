@@ -18,6 +18,8 @@
     "test": "ava",
     "cleanup": "del-cli lib",
     "build": "microbundle build --no-sourcemap --tsconfig tsconfig.build.json --target node --format es,cjs --generateTypes false && tsc --project tsconfig.d.ts.json && del-cli lib/entries.d.ts lib/variants.d.ts",
+    "report": "c8 -r=html npm test",
+    "ci": "c8 npm test && c8 report --reporter=json",
     "prepublishOnly": "npm run cleanup && npm run build"
   },
   "keywords": [
@@ -29,6 +31,7 @@
     "@playwright/test": "^1.32.1",
     "@types/node": "^18.15.11",
     "ava": "^5.2.0",
+    "c8": "^7.13.0",
     "del-cli": "^5.0.0",
     "postcss": "8.4.21",
     "tailwindcss": "3.3.0",
