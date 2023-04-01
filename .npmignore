@@ -9,8 +9,11 @@ yarn-error.log
 yarn-error.log
 npm-debug.log
 
+/.husky
+/.github
 /.e2e-results
 /playwright-report
+/coverage
 /e2e
 /src
 /tsconfig.json
@@ -23,3 +26,5 @@ npm-debug.log
 /.gitignore
 /.eslintrc.json
 /.c8rc.json
+/.eslintignore
+/.lintstagedrc

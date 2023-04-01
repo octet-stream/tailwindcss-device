@@ -26,7 +26,7 @@
     "coverage": "c8 npm test",
     "report": "c8 -r=html npm test",
     "ci": "c8 npm test && c8 report --reporter=json",
-    "postinstall": "husky install",
+    "_postinstall": "husky install",
     "prepublishOnly": "pinst --disable && npm run cleanup && npm run build",
     "postpublish": "pinst --enable"
   },
