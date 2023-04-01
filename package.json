@@ -36,32 +36,30 @@
     "postcss"
   ],
   "devDependencies": {
-    "@octetstream/eslint-config": "^6.2.2",
-    "@playwright/test": "^1.32.1",
-    "@types/node": "^18.15.11",
-    "@typescript-eslint/eslint-plugin": "^5.57.0",
-    "@typescript-eslint/parser": "^5.57.0",
-    "ava": "^5.2.0",
-    "c8": "^7.13.0",
-    "del-cli": "^5.0.0",
-    "eslint": "^8.37.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-import-resolver-typescript": "^3.5.4",
-    "eslint-plugin-import": "^2.27.5",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.2.0",
-    "pinst": "^3.0.0",
+    "@octetstream/eslint-config": "6.2.2",
+    "@playwright/test": "1.32.1",
+    "@types/node": "18.15.11",
+    "@typescript-eslint/eslint-plugin": "5.57.0",
+    "@typescript-eslint/parser": "5.57.0",
+    "ava": "5.2.0",
+    "c8": "7.13.0",
+    "del-cli": "5.0.0",
+    "eslint": "8.37.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "17.0.0",
+    "eslint-import-resolver-typescript": "3.5.4",
+    "eslint-plugin-import": "2.27.5",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.0",
+    "microbundle": "0.15.1",
+    "pinst": "3.0.0",
     "postcss": "8.4.21",
     "tailwindcss": "3.3.0",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.2"
+    "ts-node": "10.9.1",
+    "typescript": "5.0.2"
   },
   "peerDependencies": {
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.0"
-  },
-  "dependencies": {
-    "microbundle": "^0.15.1"
   }
 }
