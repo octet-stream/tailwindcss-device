@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Nick K.",
   "license": "MIT",
+  "repository": "octet-stream/tailwind-plugin-device",
   "source": "src/device.ts",
   "main": "./lib/device.cjs",
   "module": "./lib/device.mjs",
