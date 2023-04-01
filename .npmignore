@@ -3,7 +3,11 @@ __macro__
 __helper__
 __fixture__
 node_modules
-pnpm-lock.yaml
+yarn.lock
+package-lock.json
+yarn-error.log
+yarn-error.log
+npm-debug.log
 
 /.e2e-results
 /playwright-report
@@ -12,7 +16,10 @@ pnpm-lock.yaml
 /tsconfig.json
 /tsconfig.build.json
 /tsconfig.d.ts.json
+/tsconfig.eslint.json
 /ava.config.js
 /playwright.config.ts
 /.editorconfig
 /.gitignore
+/.eslintrc.json
+/.c8rc.json
