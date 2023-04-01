@@ -4,6 +4,13 @@
     "project": "./tsconfig.eslint.json"
   },
   "rules": {
+    "indent": ["error", 2, {
+      "SwitchCase": 1,
+      "FunctionExpression": {
+        "parameters": 1,
+        "body": 1
+      }
+    }],
     "import/no-extraneous-dependencies": ["error", {
       "devDependencies": [
         "./playwright.config.ts",
