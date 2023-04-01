@@ -1,6 +1,16 @@
 {
   "extends": ["@octetstream/eslint-config/esm/typescript"],
   "parserOptions": {
-    "project": "./tsconfig.build.json"
+    "project": "./tsconfig.eslint.json"
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": [
+        "./playwright.config.ts",
+        "src/**/*.test.ts",
+        "src/**/__macro__/**/*.ts",
+        "e2e/**"
+      ]
+    }]
   }
 }

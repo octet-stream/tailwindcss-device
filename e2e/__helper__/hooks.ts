@@ -5,13 +5,12 @@ import {join, resolve} from "node:path"
 import {tmpdir} from "node:os"
 
 import type {Config} from "tailwindcss"
+import {test as base} from "@playwright/test"
 
 import tailwind from "tailwindcss"
 import postcss from "postcss"
 
 import device from "../../lib/device.mjs"
-
-import {test as base} from "@playwright/test"
 
 export const test = base.extend({
   async page({page}, use) {
@@ -53,7 +52,9 @@ export async function setup() {
     @tailwind utilities;
   `
 
-  const result = await postcss(tailwind(config)).process(input, {from: undefined})
+  const result = await postcss(tailwind(config)).process(input, {
+    from: undefined
+  })
 
   await writeFile(join(RUNTIME_FILES_ROOT, "test.css"), result.css)
 }

@@ -15,14 +15,18 @@
     "types": "./lib/device.d.ts"
   },
   "scripts": {
+    "eslint": "pnpm exec eslint playwright.config.ts src/**/*.ts e2e/**/*.ts",
     "lint:types": "tsc --project tsconfig.build.json --noEmit",
+    "lint-staged": "pnpm exec lint-staged",
     "test": "ava",
     "test:e2e": "pnpm exec playwright test",
     "cleanup": "del-cli lib",
     "build": "microbundle build --no-sourcemap --tsconfig tsconfig.build.json --target node --format es,cjs --generateTypes false && tsc --project tsconfig.d.ts.json && del-cli lib/entries.d.ts lib/variants.d.ts",
     "report": "c8 -r=html npm test",
     "ci": "c8 npm test && c8 report --reporter=json",
-    "prepublishOnly": "npm run cleanup && npm run build"
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable && npm run cleanup && npm run build",
+    "postpublish": "pinst --enable"
   },
   "keywords": [
     "tailwindcss",
@@ -43,6 +47,9 @@
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-import-resolver-typescript": "^3.5.4",
     "eslint-plugin-import": "^2.27.5",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "pinst": "^3.0.0",
     "postcss": "8.4.21",
     "tailwindcss": "3.3.0",
     "ts-node": "^10.9.1",
