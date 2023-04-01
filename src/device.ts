@@ -16,9 +16,9 @@ import {variants} from "./variants.js"
  * 1. Add plugin to your `tailwind.config.js` plugins section:
  *
  * ```ts
- * import device from "tailwind-plugin-device"
+ * const device = require("tailwindcss-device")
  *
- * export default {
+ * module.exports = {
  *   plugins: [
  *     device
  *     // ...

@@ -1,4 +1,4 @@
-# tailwind-plugin-device
+# tailwindcss-device
 
 TailwindCSS plugin to add variants for input device detection using [`@media`](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries) queries
 
@@ -7,19 +7,19 @@ TailwindCSS plugin to add variants for input device detection using [`@media`](h
 pnpm
 
 ```sh
-pnpm add -D tailwind-plugin-device
+pnpm add -D tailwindcss-device
 ```
 
 npm
 
 ```
-npm i tailwind-plugin-device
+npm i -D tailwindcss-device
 ```
 
 yarn
 
 ```
-yarn add tailwind-plugin-device
+yarn add -D tailwindcss-device
 ```
 
 ### Usage
@@ -27,7 +27,7 @@ yarn add tailwind-plugin-device
 1. Add plugin to your `tailwind.config.js` plugins section:
 
 ```ts
-const device = require("tailwind-plugin-device")
+const device = require("tailwindcss-device")
 
 module.exports = {
   plugins: [

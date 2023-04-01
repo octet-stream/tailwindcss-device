@@ -1,11 +1,11 @@
 {
   "type": "module",
-  "name": "tailwind-plugin-device",
+  "name": "tailwindcss-device",
   "description": "TailwindCSS plugin to add variants for input device detection using `@media` queries",
   "version": "0.1.0",
   "author": "Nick K.",
   "license": "MIT",
-  "repository": "octet-stream/tailwind-plugin-device",
+  "repository": "octet-stream/tailwindcss-device",
   "source": "src/device.ts",
   "main": "./lib/device.cjs",
   "module": "./lib/device.mjs",
