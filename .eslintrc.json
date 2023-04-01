@@ -1,0 +1,6 @@
+{
+  "extends": ["@octetstream/eslint-config/esm/typescript"],
+  "parserOptions": {
+    "project": "./tsconfig.build.json"
+  }
+}
