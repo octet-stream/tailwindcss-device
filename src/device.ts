@@ -58,5 +58,3 @@ export const device = plugin.withOptions<PluginDeviceOptions>(
     ))
   }
 )
-
-export default device
