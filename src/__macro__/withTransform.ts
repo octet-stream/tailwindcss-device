@@ -1,17 +1,16 @@
-import {fileURLToPath} from "node:url"
-import {resolve} from "node:path"
+/* eslint-disable no-shadow */
 
 import type {Result} from "postcss"
-import type {Config} from "tailwindcss"
 
 import test from "ava"
 
-import postcss, {AtRule} from "postcss"
+import {AtRule} from "postcss"
+import type {Config} from "tailwindcss"
 
-import tailwind from "tailwindcss"
+import {transform} from "../__helper__/transform.js"
 
-import device from "../device.js"
-
+import type {PluginDeviceOptions} from "../device.js"
+import {withPrefix} from "../prefix.js"
 import {variants} from "../variants.js"
 
 type Variants = typeof variants
@@ -22,10 +21,6 @@ interface TailwindRaws {
   layer: "variants"
 }
 
-interface Transform {
-  (input: string, config: Config): Promise<Result>
-}
-
 interface Expectations {
   name: keyof Variants
   params: Variants[keyof Variants]
@@ -34,6 +29,15 @@ interface Expectations {
 interface ImplementationResult {
   actual: Result
   expected: Expectations[]
+  prefix?: string
+}
+
+interface Transform {
+  (
+    input: string,
+    config: Config,
+    options?: PluginDeviceOptions
+  ): Promise<Result>
 }
 
 type Implementation = (
@@ -48,16 +52,13 @@ export const withTransform = test.macro(async (t, impl: Implementation) => {
   const css = String.raw
   const html = String.raw
 
-  const transform: Transform = (input, config) => {
-    config.plugins = [...(config.plugins ?? []), device]
+  const transformWithTitle: Transform = (
+    input,
+    config,
+    options
+  ) => transform(t.title, input, config, options)
 
-    return postcss(tailwind(config))
-      .process(input, {
-        from: `${resolve(fileURLToPath(import.meta.url))}?test=${t.title}`
-      })
-  }
-
-  const {expected, actual} = await impl(transform, html, css)
+  const {expected, actual, prefix} = await impl(transformWithTitle, html, css)
 
   const nodes = [...actual.root.nodes].filter(isAtRule)
 
@@ -73,7 +74,7 @@ export const withTransform = test.macro(async (t, impl: Implementation) => {
     t.is(raws.layer, "variants", "Should be applied to variants layer")
     t.is(raws.parentLayer, "utilities", "Should be at utilities parent layer")
     t.true(
-      raws.candidate.startsWith(`device-${expectations.name}`),
+      raws.candidate.startsWith(`${withPrefix(expectations.name, prefix)}`),
 
       "Selector should start with device's variant name"
     )

@@ -16,6 +16,7 @@
         "./playwright.config.ts",
         "src/**/*.test.ts",
         "src/**/__macro__/**/*.ts",
+        "src/**/__helper__/**/*.ts",
         "e2e/**"
       ]
     }]

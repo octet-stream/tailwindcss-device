@@ -3,6 +3,16 @@ import postcss from "postcss"
 
 import {entries} from "./entries.js"
 import {variants} from "./variants.js"
+import {withPrefix} from "./prefix.js"
+
+export interface PluginDeviceOptions {
+  /**
+   * Prefix for `device` plugin variants.
+   *
+   * Defaults to `device`
+   */
+  prefix?: string
+}
 
 /**
  * Adds variants allowing to specify input device type.
@@ -16,7 +26,7 @@ import {variants} from "./variants.js"
  * 1. Add plugin to your `tailwind.config.js` plugins section:
  *
  * ```ts
- * const device = require("tailwindcss-device")
+ * const {device} = require("tailwindcss-device")
  *
  * module.exports = {
  *   plugins: [
@@ -39,12 +49,14 @@ import {variants} from "./variants.js"
  * <div>
  * ```
  */
-const device = plugin(({addVariant}) => {
-  entries(variants).forEach(([name, params]) => addVariant(
-    `device-${name}`,
+export const device = plugin.withOptions<PluginDeviceOptions>(
+  (options = {}) => ({addVariant}) => {
+    entries(variants).forEach(([name, params]) => addVariant(
+      withPrefix(name, options.prefix),
 
-    postcss.atRule({name: "media", params}).toString()
-  ))
-})
+      postcss.atRule({name: "media", params}).toString()
+    ))
+  }
+)
 
 export default device

@@ -10,7 +10,7 @@ import {test as base} from "@playwright/test"
 import tailwind from "tailwindcss"
 import postcss from "postcss"
 
-import device from "../../lib/device.mjs"
+import {device} from "../../lib/device.mjs"
 
 export const test = base.extend({
   async page({page}, use) {

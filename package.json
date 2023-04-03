@@ -22,7 +22,7 @@
     "test": "ava",
     "test:e2e": "pnpm exec playwright test",
     "cleanup": "del-cli lib",
-    "build": "microbundle build --no-sourcemap --tsconfig tsconfig.build.json --target node --format es,cjs --generateTypes false && tsc --project tsconfig.d.ts.json && del-cli lib/entries.d.ts lib/variants.d.ts",
+    "build": "microbundle build --no-sourcemap --tsconfig tsconfig.build.json --target node --format es,cjs --generateTypes false && tsc --project tsconfig.d.ts.json && del-cli lib/prefix.d.ts lib/entries.d.ts lib/variants.d.ts",
     "coverage": "c8 npm test",
     "report": "c8 -r=html npm test",
     "ci": "c8 npm test && c8 report --reporter=json",
