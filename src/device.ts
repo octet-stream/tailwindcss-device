@@ -49,7 +49,7 @@ export interface PluginDeviceOptions {
  * <div>
  * ```
  */
-export const device = plugin.withOptions<PluginDeviceOptions>(
+export const device = plugin.withOptions<PluginDeviceOptions | undefined>(
   (options = {}) => ({addVariant}) => {
     entries(variants).forEach(([name, params]) => addVariant(
       withPrefix(name, options.prefix),
