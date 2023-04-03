@@ -33,7 +33,8 @@
   "keywords": [
     "tailwindcss",
     "plugin",
-    "postcss"
+    "postcss",
+    "media-queries"
   ],
   "devDependencies": {
     "@octetstream/eslint-config": "6.2.2",
