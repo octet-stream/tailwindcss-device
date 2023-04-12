@@ -54,7 +54,7 @@ interface PluginDeviceOptions {
  * 1. Add plugin to your `tailwind.config.js` plugins section:
  *
  * ```ts
- * const {device} = require("tailwindcss-device")
+ * const device = require("tailwindcss-device")
  *
  * module.exports = {
  *   plugins: [
