@@ -7,7 +7,7 @@
     "module": "esnext",
     "strict": true,
     "noImplicitAny": true,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "allowSyntheticDefaultImports": true,
     "outDir": "lib",
     "removeComments": true

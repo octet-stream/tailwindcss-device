@@ -7,8 +7,7 @@ import type {Result} from "postcss"
 import tailwind from "tailwindcss"
 import postcss from "postcss"
 
-import type {PluginDeviceOptions} from "../device.js"
-import {device} from "../device.js"
+import device from "../device.js"
 
 export interface Transform {
   /**
@@ -23,7 +22,7 @@ export interface Transform {
     title: string,
     input: string,
     config: Config,
-    options?: PluginDeviceOptions
+    options?: Parameters<typeof device>[0]
   ): Promise<Result>
 }
 

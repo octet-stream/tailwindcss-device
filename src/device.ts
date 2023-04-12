@@ -5,7 +5,10 @@ import {entries} from "./entries.js"
 import {variants} from "./variants.js"
 import {withPrefix} from "./prefix.js"
 
-export interface PluginDeviceOptions {
+/**
+ * @api private
+ */
+interface PluginDeviceOptions {
   /**
    * Prefix for `device` plugin variants.
    *
@@ -49,7 +52,7 @@ export interface PluginDeviceOptions {
  * <div>
  * ```
  */
-export const device = plugin.withOptions<PluginDeviceOptions>(
+const device = plugin.withOptions<PluginDeviceOptions>(
   (options = {}) => ({addVariant}) => {
     entries(variants).forEach(([name, params]) => addVariant(
       withPrefix(name, options.prefix),
@@ -58,3 +61,5 @@ export const device = plugin.withOptions<PluginDeviceOptions>(
     ))
   }
 )
+
+export default device

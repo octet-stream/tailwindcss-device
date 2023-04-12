@@ -9,7 +9,8 @@ import type {Config} from "tailwindcss"
 
 import {transform} from "../__helper__/transform.js"
 
-import type {PluginDeviceOptions} from "../device.js"
+import device from "../device.js"
+
 import {withPrefix} from "../prefix.js"
 import {variants} from "../variants.js"
 
@@ -36,7 +37,7 @@ interface Transform {
   (
     input: string,
     config: Config,
-    options?: PluginDeviceOptions
+    options?: Parameters<typeof device>[0]
   ): Promise<Result>
 }
 
