@@ -5,8 +5,5 @@
     "src/**/__helper__/**/*.ts",
     "src/**/__macro__/**/*.ts",
     "./src/**/*.test.ts"
-  ],
-  "compilerOptions": {
-    "moduleResolution": "node16"
-  }
+  ]
 }
