@@ -5,14 +5,39 @@ import {entries} from "./entries.js"
 import {variants} from "./variants.js"
 import {withPrefix} from "./prefix.js"
 
-/**
- * @api private
- */
 interface PluginDeviceOptions {
   /**
    * Prefix for `device` plugin variants.
    *
    * Defaults to `device`
+   *
+   * @example
+   *
+   * 1. Add prefix to plugin config:
+   *
+   * ```ts
+   * const device = require("tailwindcss-device")
+   *
+   * module.exports = {
+   *   plugins: [
+   *     device({prefix: "my-prefix"})
+   *     // ...
+   *   ]
+   * }
+   * ```
+   *
+   * 2. Use it in your html code:
+   *
+   * ```html
+   * <div class="border border-black rounded-md my-prefix-touch:rounded-lg">
+   *   <div class="hidden my-prefix-touch:block">
+   *     Hello, I'm visible on smartphones and tables!
+   *   </div>
+   *   <div class="hidden my-prefix-desktop:block">
+   *     Hello, I'm visible on computer with mouse!
+   *   </div>
+   * <div>
+   * ```
    */
   prefix?: string
 }

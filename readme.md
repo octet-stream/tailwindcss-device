@@ -31,8 +31,11 @@ const {device} = require("tailwindcss-device")
 
 module.exports = {
   plugins: [
-    device
+    device,
     // ...
+
+    // or with custom prefix:
+    deivce({prefix: "device"})
   ]
 }
 ```
@@ -48,6 +51,26 @@ module.exports = {
     Hello, I'm visible on computer with mouse!
   </div>
 <div>
+```
+
+3. The result will look like like this:
+
+```css
+.hidden {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .device-touch\:block {
+    display: block;
+  }
+}
+
+@media (pointer: fine) and (any-pointer: coarse) {
+  .device-desktop\:block {
+    display: block;
+  }
+}
 ```
 
 ## Available variants
