@@ -53,7 +53,7 @@ module.exports = {
 <div>
 ```
 
-3. The result will look like like this:
+3. The result will look like this:
 
 ```css
 .hidden {
