@@ -66,7 +66,7 @@ module.exports = {
   }
 }
 
-@media (pointer: fine) and (any-pointer: coarse) {
+@media (pointer: fine) or (pointer: none) {
   .device-desktop\:block {
     display: block;
   }
