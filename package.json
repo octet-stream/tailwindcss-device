@@ -12,9 +12,9 @@
   "module": "./lib/device.mjs",
   "types": "./lib/device.d.ts",
   "exports": {
+    "types": "./lib/device.d.ts",
     "import": "./lib/device.mjs",
-    "require": "./lib/device.cjs",
-    "types": "./lib/device.d.ts"
+    "require": "./lib/device.cjs"
   },
   "scripts": {
     "eslint": "pnpm exec eslint playwright.config.ts src/**/*.ts e2e/**/*.ts",
