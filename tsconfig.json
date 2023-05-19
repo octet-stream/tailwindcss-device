@@ -11,9 +11,5 @@
     "allowSyntheticDefaultImports": true,
     "outDir": "lib",
     "removeComments": true
-  },
-  "ts-node": {
-    "preferTsExts": true,
-    "transpileOnly": true
   }
 }

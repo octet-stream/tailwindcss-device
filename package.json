@@ -6,7 +6,10 @@
   "author": "Nick K.",
   "license": "MIT",
   "repository": "octet-stream/tailwindcss-device",
-  "packageManager": "pnpm@8.1.1",
+  "packageManager": "pnpm@8.5.1",
+  "engines": {
+    "node": ">= 16.5"
+  },
   "source": "src/device.ts",
   "main": "./lib/device.cjs",
   "module": "./lib/device.mjs",
@@ -20,7 +23,7 @@
     "eslint": "pnpm exec eslint playwright.config.ts src/**/*.ts e2e/**/*.ts",
     "lint:types": "tsc --project tsconfig.build.json --noEmit",
     "lint-staged": "pnpm exec lint-staged",
-    "test:unit": "ava",
+    "test:unit": "cross-env NODE_OPTIONS=\"--no-warnings --loader=ts-node/esm\" ava",
     "test:e2e": "pnpm cleanup && pnpm build && pnpm exec playwright test",
     "test": "pnpm test:unit && pnpm test:e2e",
     "cleanup": "del-cli lib",
@@ -46,6 +49,7 @@
     "@typescript-eslint/parser": "5.57.1",
     "ava": "5.2.0",
     "c8": "7.13.0",
+    "cross-env": "^7.0.3",
     "del-cli": "5.0.0",
     "eslint": "8.38.0",
     "eslint-config-airbnb": "19.0.4",
