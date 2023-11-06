@@ -4,10 +4,10 @@
   "compilerOptions": {
     "baseUrl": "src",
     "target": "esnext",
-    "module": "esnext",
+    "module": "node16",
     "strict": true,
     "noImplicitAny": true,
-    "moduleResolution": "nodenext",
+    "moduleResolution": "node16",
     "allowSyntheticDefaultImports": true,
     "outDir": "lib",
     "removeComments": true
