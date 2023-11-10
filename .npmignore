@@ -21,6 +21,7 @@ npm-debug.log
 /tsconfig.d.ts.json
 /tsconfig.eslint.json
 /tsconfig.ava.json
+/tsup.config.ts
 /ava.config.js
 /playwright.config.ts
 /.editorconfig
