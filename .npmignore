@@ -9,6 +9,7 @@ yarn-error.log
 yarn-error.log
 npm-debug.log
 
+/.changeset
 /.husky
 /.github
 /.e2e-results
