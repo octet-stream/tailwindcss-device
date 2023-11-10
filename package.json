@@ -6,7 +6,7 @@
   "author": "Nick K.",
   "license": "MIT",
   "repository": "octet-stream/tailwindcss-device",
-  "packageManager": "pnpm@8.5.1",
+  "packageManager": "pnpm@8.10.2",
   "engines": {
     "node": ">= 16.5"
   },
@@ -31,9 +31,8 @@
     "coverage": "c8 pnpm test:unit",
     "report": "c8 -r=html pnpm test:unit",
     "ci": "c8 pnpm test:unit && c8 report --reporter=json",
-    "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable && pnpm cleanup && pnpm build",
-    "postpublish": "pinst --enable"
+    "prepare": "husky install",
+    "prepublishOnly": "pnpm cleanup && pnpm build"
   },
   "keywords": [
     "tailwindcss",
@@ -42,28 +41,27 @@
     "media-queries"
   ],
   "devDependencies": {
-    "@octetstream/eslint-config": "7.0.2",
-    "@playwright/test": "1.32.2",
-    "@types/node": "18.15.11",
-    "@typescript-eslint/eslint-plugin": "5.57.1",
-    "@typescript-eslint/parser": "5.57.1",
-    "ava": "5.2.0",
-    "c8": "7.13.0",
+    "@octetstream/eslint-config": "7.2.1",
+    "@playwright/test": "1.39.0",
+    "@types/node": "20.9.0",
+    "@typescript-eslint/eslint-plugin": "6.10.0",
+    "@typescript-eslint/parser": "6.10.0",
+    "ava": "5.3.1",
+    "c8": "8.0.1",
     "cross-env": "^7.0.3",
-    "del-cli": "5.0.0",
-    "eslint": "8.38.0",
+    "del-cli": "5.1.0",
+    "eslint": "8.53.0",
     "eslint-config-airbnb": "19.0.4",
-    "eslint-config-airbnb-typescript": "17.0.0",
-    "eslint-import-resolver-typescript": "3.5.5",
-    "eslint-plugin-import": "2.27.5",
+    "eslint-config-airbnb-typescript": "17.1.0",
+    "eslint-import-resolver-typescript": "3.6.1",
+    "eslint-plugin-import": "2.29.0",
     "husky": "8.0.3",
-    "lint-staged": "13.2.1",
+    "lint-staged": "15.0.2",
     "microbundle": "0.15.1",
-    "pinst": "3.0.0",
-    "postcss": "8.4.21",
-    "tailwindcss": "3.3.1",
+    "postcss": "8.4.31",
+    "tailwindcss": "3.3.5",
     "ts-node": "10.9.1",
-    "typescript": "5.0.4"
+    "typescript": "5.2.2"
   },
   "peerDependencies": {
     "postcss": "^8.4.21",
