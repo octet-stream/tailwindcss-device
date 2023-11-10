@@ -33,7 +33,7 @@
     "coverage": "c8 pnpm test:unit",
     "report": "c8 -r=html pnpm test:unit",
     "ci": "c8 pnpm test:unit && c8 report --reporter=json",
-    "prepare": "husky install",
+    "prepare": "node -e 'process.exit(+(process.env.CI !== undefined || process.env.NO_HUSKY_HOOKS !== undefined));' && husky install || true",
     "prepublishOnly": "pnpm build"
   },
   "keywords": [
