@@ -2,7 +2,7 @@
   "type": "module",
   "name": "tailwindcss-device",
   "description": "TailwindCSS plugin to add variants for input device detection using `@media` queries",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "author": "Nick K.",
   "license": "MIT",
   "repository": "octet-stream/tailwindcss-device",
