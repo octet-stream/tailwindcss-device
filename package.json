@@ -8,7 +8,7 @@
   "repository": "octet-stream/tailwindcss-device",
   "packageManager": "pnpm@8.10.2",
   "engines": {
-    "node": ">= 16.5"
+    "node": ">= 18"
   },
   "main": "./lib/device.js",
   "types": "./lib/device.d.ts",
@@ -63,7 +63,7 @@
     "postcss": "8.4.31",
     "tailwindcss": "3.3.5",
     "ts-node": "10.9.1",
-    "tsup": "^7.2.0",
+    "tsup": "7.2.0",
     "typescript": "5.2.2"
   },
   "peerDependencies": {
