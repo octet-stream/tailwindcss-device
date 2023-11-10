@@ -1,2 +1,2 @@
-npm run coverage
-npm run test:e2e
+pnpm run coverage
+pnpm run test:e2e

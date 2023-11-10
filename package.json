@@ -24,7 +24,6 @@
   },
   "scripts": {
     "eslint": "pnpm exec eslint playwright.config.ts src/**/*.ts e2e/**/*.ts",
-    "lint:types": "tsc --noEmit",
     "lint-staged": "pnpm exec lint-staged",
     "test:unit": "cross-env NODE_OPTIONS=\"--no-warnings --loader=ts-node/esm\" ava",
     "test:e2e": "pnpm build && pnpm exec playwright test",
