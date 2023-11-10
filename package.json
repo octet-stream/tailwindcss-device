@@ -10,29 +10,31 @@
   "engines": {
     "node": ">= 16.5"
   },
-  "source": "src/device.ts",
-  "main": "./lib/device.cjs",
-  "module": "./lib/device.mjs",
+  "main": "./lib/device.js",
   "types": "./lib/device.d.ts",
   "exports": {
-    "types": "./lib/device.d.ts",
-    "import": "./lib/device.mjs",
-    "require": "./lib/device.cjs"
+    "import": {
+      "types": "./lib/device.d.ts",
+      "default": "./lib/device.js"
+    },
+    "require": {
+      "types": "./lib/device.d.cts",
+      "default": "./lib/device.cjs"
+    }
   },
   "scripts": {
     "eslint": "pnpm exec eslint playwright.config.ts src/**/*.ts e2e/**/*.ts",
-    "lint:types": "tsc --project tsconfig.build.json --noEmit",
+    "lint:types": "tsc --noEmit",
     "lint-staged": "pnpm exec lint-staged",
     "test:unit": "cross-env NODE_OPTIONS=\"--no-warnings --loader=ts-node/esm\" ava",
-    "test:e2e": "pnpm cleanup && pnpm build && pnpm exec playwright test",
+    "test:e2e": "pnpm build && pnpm exec playwright test",
     "test": "pnpm test:unit && pnpm test:e2e",
-    "cleanup": "del-cli lib",
-    "build": "microbundle build --no-sourcemap --tsconfig tsconfig.build.json --target node --format es,cjs --generateTypes false && tsc --project tsconfig.d.ts.json && del-cli lib/prefix.d.ts lib/entries.d.ts lib/variants.d.ts",
+    "build": "del-cli lib && tsup",
     "coverage": "c8 pnpm test:unit",
     "report": "c8 -r=html pnpm test:unit",
     "ci": "c8 pnpm test:unit && c8 report --reporter=json",
     "prepare": "husky install",
-    "prepublishOnly": "pnpm cleanup && pnpm build"
+    "prepublishOnly": "pnpm build"
   },
   "keywords": [
     "tailwindcss",
@@ -61,6 +63,7 @@
     "postcss": "8.4.31",
     "tailwindcss": "3.3.5",
     "ts-node": "10.9.1",
+    "tsup": "^7.2.0",
     "typescript": "5.2.2"
   },
   "peerDependencies": {

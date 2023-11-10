@@ -1,7 +1,7 @@
 {
   "extends": ["@octetstream/eslint-config/esm/typescript"],
   "parserOptions": {
-    "project": "./tsconfig.eslint.json"
+    "project": "./tsconfig.json"
   },
   "rules": {
     "indent": ["error", 2, {
@@ -18,7 +18,8 @@
         "src/**/*.test.ts",
         "src/**/__macro__/**/*.ts",
         "src/**/__helper__/**/*.ts",
-        "e2e/**"
+        "e2e/**",
+        "tsup"
       ]
     }]
   }
