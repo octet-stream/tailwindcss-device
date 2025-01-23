@@ -11,8 +11,10 @@ type ParamValues = "none" | "fine" | "coarse"
 /**
  * @api private
  */
-type CompileParamResult<TName extends ParamNames, TValue extends ParamValues>
-  = `${TName}: ${TValue}`
+type CompileParamResult<
+  TName extends ParamNames,
+  TValue extends ParamValues
+> = `${TName}: ${TValue}`
 
 /**
  * Creates a parameter for `@media` query at-rule.
@@ -67,9 +69,8 @@ type AddParenthesesResult<T extends string> = `(${T})`
  *
  * @api private
  */
-const addParentheses = <T extends string>(
-  value: T
-): AddParenthesesResult<T> => `(${value})`
+const addParentheses = <T extends string>(value: T): AddParenthesesResult<T> =>
+  `(${value})`
 
 /**
  * Matches touchscreen input device

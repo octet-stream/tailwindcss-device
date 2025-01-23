@@ -1,6 +1,6 @@
 import {expect} from "@playwright/test"
 
-import {test, setup, teardown} from "./__helper__/hooks.js"
+import {setup, teardown, test} from "./__helper__/hooks.js"
 
 test.beforeAll(setup)
 
@@ -18,17 +18,15 @@ test("2nd <div> element is visible on desktop device", async ({page}) => {
   await expect(element).toHaveCSS("display", "block")
 })
 
-test(
-  "3rd <div> element is invisible on desktop with touchscreen",
+test("3rd <div> element is invisible on desktop with touchscreen", async ({
+  page
+}) => {
+  const element = page.getByText(
+    "Hello! I'm visible on desktop with touchscreen!"
+  )
 
-  async ({page}) => {
-    const element = page.getByText(
-      "Hello! I'm visible on desktop with touchscreen!"
-    )
-
-    await expect(element).toHaveCSS("display", "none")
-  }
-)
+  await expect(element).toHaveCSS("display", "none")
+})
 
 test("4th <div> element is visible on any desktop device", async ({page}) => {
   const element = page.getByText("Hello! I'm visible on any desktop!")

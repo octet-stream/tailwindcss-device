@@ -1,11 +1,11 @@
-import {fileURLToPath} from "node:url"
 import {resolve} from "node:path"
+import {fileURLToPath} from "node:url"
 
-import type {Config} from "tailwindcss"
 import type {Result} from "postcss"
+import type {Config} from "tailwindcss"
 
-import tailwind from "tailwindcss"
 import postcss from "postcss"
+import tailwind from "tailwindcss"
 
 import device from "../device.js"
 

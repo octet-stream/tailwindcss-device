@@ -1,6 +1,6 @@
 import {expect} from "@playwright/test"
 
-import {test, setup, teardown} from "./__helper__/hooks.js"
+import {setup, teardown, test} from "./__helper__/hooks.js"
 
 test.beforeAll(setup)
 

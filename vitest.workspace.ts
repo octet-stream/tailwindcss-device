@@ -1,5 +1,6 @@
-import {devices} from "playwright"
 /// <reference types="@vitest/browser/providers/playwright" />
+
+import {devices} from "playwright"
 import {defineWorkspace} from "vitest/config"
 
 export default defineWorkspace([

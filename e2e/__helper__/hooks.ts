@@ -1,14 +1,14 @@
-import {writeFile, rm, copyFile, mkdir} from "node:fs/promises"
-import {pathToFileURL} from "node:url"
 import {randomUUID} from "node:crypto"
-import {join, resolve} from "node:path"
+import {copyFile, mkdir, rm, writeFile} from "node:fs/promises"
 import {tmpdir} from "node:os"
+import {join, resolve} from "node:path"
+import {pathToFileURL} from "node:url"
 
-import type {Config} from "tailwindcss"
 import {test as base} from "@playwright/test"
+import type {Config} from "tailwindcss"
 
-import tailwind from "tailwindcss"
 import postcss from "postcss"
+import tailwind from "tailwindcss"
 
 import device from "../../lib/device.js"
 
