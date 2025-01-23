@@ -1,2 +1,1 @@
-pnpm run coverage
-pnpm run test:e2e
+pnpm vitest run

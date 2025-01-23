@@ -1,5 +1,0 @@
-{
-  "src/**/*.ts": "eslint --fix",
-  "e2e/**/*.ts": "eslint --fix",
-  "playwright.config.ts": "eslint --fix"
-}

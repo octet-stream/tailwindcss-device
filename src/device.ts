@@ -1,9 +1,9 @@
-import plugin from "tailwindcss/plugin.js"
 import postcss from "postcss"
+import plugin from "tailwindcss/plugin.js"
 
 import {entries} from "./entries.js"
-import {variants} from "./variants.js"
 import {withPrefix} from "./prefix.js"
+import {variants} from "./variants.js"
 
 interface PluginDeviceOptions {
   /**
@@ -78,13 +78,16 @@ interface PluginDeviceOptions {
  * ```
  */
 const device = plugin.withOptions<PluginDeviceOptions>(
-  (options = {}) => ({addVariant}) => {
-    entries(variants).forEach(([name, params]) => addVariant(
-      withPrefix(name, options.prefix),
+  (options = {}) =>
+    ({addVariant}) => {
+      entries(variants).forEach(([name, params]) =>
+        addVariant(
+          withPrefix(name, options.prefix),
 
-      postcss.atRule({name: "media", params}).toString()
-    ))
-  }
+          postcss.atRule({name: "media", params}).toString()
+        )
+      )
+    }
 )
 
 export default device

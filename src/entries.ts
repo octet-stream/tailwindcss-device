@@ -9,6 +9,5 @@ type ObjectEntries<T extends object> = [keyof T, T[keyof T]][]
  *
  * @api private
  */
-export const entries = <T extends object>(
-  value: T
-) => Object.entries(value) as ObjectEntries<T>
+export const entries = <T extends object>(value: T) =>
+  Object.entries(value) as ObjectEntries<T>
