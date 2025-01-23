@@ -10,6 +10,8 @@ coverage
 # Screenshots from Vitest Browser Mode
 __screenshots__
 
+*.junit.xml
+
 /lib
 /.e2e-results/
 /test-results
