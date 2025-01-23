@@ -34,5 +34,28 @@ export default defineWorkspace([
         ]
       }
     }
+  },
+  {
+    extends: "vitest.config.ts",
+    test: {
+      name: "desktop",
+      include: ["tests/browser/**/*.desktop.test.ts"],
+      browser: {
+        enabled: true,
+        headless: true,
+        provider: "playwright",
+        instances: [
+          {
+            browser: "chromium"
+          },
+          {
+            browser: "firefox"
+          },
+          {
+            browser: "webkit"
+          }
+        ]
+      }
+    }
   }
 ])

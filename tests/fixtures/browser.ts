@@ -14,7 +14,11 @@ interface BrowserTestContext {
 }
 
 export const browserTest = test.extend<BrowserTestContext>({
-  async render({task: _}, use) {
+  async render({task: _, onTestFinished}, use) {
+    onTestFinished(() => {
+      document.body.innerHTML = "" // Cleanup the node to avoid conflicts
+    })
+
     const render: RenderFuction = html => {
       document.body.append(parse(html))
 

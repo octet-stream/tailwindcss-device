@@ -5,6 +5,7 @@ export default defineConfig({
     reporters: ["default", "junit"],
     outputFile: "./vitest-report.junit.xml",
     coverage: {
+      provider: "istanbul",
       include: ["src/**/*.ts"]
     }
   }

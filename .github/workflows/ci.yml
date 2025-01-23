@@ -61,11 +61,3 @@ jobs:
 
       - name: Run CI
         run: pnpm run ci
-
-      - name: Upload codecov report
-        uses: codecov/codecov-action@v3
-        if: matrix.node == '20.x' && matrix.os == 'ubuntu-latest'
-        with:
-          file: ./coverage/coverage-final.json
-          flags: unittests
-          fail_ci_if_error: false
