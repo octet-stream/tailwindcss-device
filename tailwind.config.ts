@@ -5,5 +5,8 @@ import device from "./src/device.js"
 // Tailwindcss test config
 export default {
   content: ["tests/browser/**/*.test.ts", "tests/fixtures/**/*.ts"],
-  plugins: [device]
+  plugins: [device],
+  corePlugins: {
+    preflight: false
+  }
 } satisfies Config
