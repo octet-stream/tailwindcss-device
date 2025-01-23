@@ -2,14 +2,16 @@
   "include": ["**/*.ts"],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "baseUrl": "src",
     "target": "esnext",
     "module": "node16",
+    "moduleResolution": "node16",
+    "moduleDetection": "force",
+    "verbatimModuleSyntax": true,
     "strict": true,
     "noImplicitAny": true,
-    "moduleResolution": "node16",
     "allowSyntheticDefaultImports": true,
     "outDir": "lib",
-    "removeComments": true
+    "removeComments": true,
+    "noEmit": true
   }
 }

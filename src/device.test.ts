@@ -4,19 +4,23 @@ import type {Config} from "tailwindcss"
 
 import {withTransform} from "./__macro__/withTransform.js"
 
-import {variants} from "./variants.js"
-import {withPrefix} from "./prefix.js"
 import {entries} from "./entries.js"
+import {withPrefix} from "./prefix.js"
+import {variants} from "./variants.js"
 
 test("Applies device variants", withTransform, async (transform, html, css) => {
   const config: Config = {
     content: [
       {
-        raw: html`${entries(variants).map(([name]) => html`
+        raw: html`${entries(variants)
+          .map(
+            ([name]) => html`
           <div class="hidden ${withPrefix(name)}:block">
             Hello! I'm only visible with ${name} device variant!
           </div>
-        `).join("")}`
+        `
+          )
+          .join("")}`
       }
     ],
     corePlugins: {
@@ -40,16 +44,20 @@ test("Supports custom prefix", withTransform, async (transform, html, css) => {
   const config: Config = {
     content: [
       {
-        raw: html`${entries(variants).map(([name]) => html`
+        raw: html`${entries(variants)
+          .map(
+            ([name]) => html`
           <div class="hidden ${withPrefix(name, prefix)}:block">
             Hello! I'm only visible with ${name} device variant!
           </div>
-        `).join("")}`
+        `
+          )
+          .join("")}`
       }
     ],
     corePlugins: {
       preflight: false
-    },
+    }
   }
 
   const input = css`

@@ -9,16 +9,16 @@ import type {Config} from "tailwindcss"
 
 import {transform} from "../__helper__/transform.js"
 
-import device from "../device.js"
+import type device from "../device.js"
 
 import {withPrefix} from "../prefix.js"
-import {variants} from "../variants.js"
+import type {variants} from "../variants.js"
 
 type Variants = typeof variants
 
 interface TailwindRaws {
-  candidate: string,
-  parentLayer: "utilities",
+  candidate: string
+  parentLayer: "utilities"
   layer: "variants"
 }
 
@@ -33,13 +33,11 @@ interface ImplementationResult {
   prefix?: string
 }
 
-interface Transform {
-  (
-    input: string,
-    config: Config,
-    options?: Parameters<typeof device>[0]
-  ): Promise<Result>
-}
+type Transform = (
+  input: string,
+  config: Config,
+  options?: Parameters<typeof device>[0]
+) => Promise<Result>
 
 type Implementation = (
   transform: Transform,
@@ -53,11 +51,8 @@ export const withTransform = test.macro(async (t, impl: Implementation) => {
   const css = String.raw
   const html = String.raw
 
-  const transformWithTitle: Transform = (
-    input,
-    config,
-    options
-  ) => transform(t.title, input, config, options)
+  const transformWithTitle: Transform = (input, config, options) =>
+    transform(t.title, input, config, options)
 
   const {expected, actual, prefix} = await impl(transformWithTitle, html, css)
 
