@@ -5,9 +5,7 @@ on:
     branches: [main]
     paths:
       - "**.ts"
-      - "**.tsx"
       - "tsconfig.json"
-      - "ava.config.js"
       - "package.json"
       - "pnpm-lock.yaml"
       - ".github/workflows/ci.yml"
@@ -15,9 +13,7 @@ on:
     branches: [main]
     paths:
       - "**.ts"
-      - "**.tsx"
       - "tsconfig.json"
-      - "ava.config.js"
       - "package.json"
       - "pnpm-lock.yaml"
       - ".github/workflows/ci.yml"
