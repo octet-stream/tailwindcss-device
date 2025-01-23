@@ -1,0 +1,5 @@
+/* Tailwindcss test styles config */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

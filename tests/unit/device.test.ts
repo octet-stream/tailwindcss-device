@@ -1,7 +1,8 @@
 import {expect} from "vitest"
 
-import {html, pluginTest} from "../fixtures/tailwind.js"
+import {pluginTest} from "../fixtures/tailwind.js"
 import {isAtRule} from "../utils/isAtRule.js"
+import {html} from "../utils/templates.js"
 
 import {entries} from "../../src/entries.js"
 import {withPrefix} from "../../src/prefix.js"
