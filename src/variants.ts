@@ -50,14 +50,10 @@ const combineParams = <
   TRight extends string,
   TOp extends CombineParamsOperators
 >(
-  /* eslint-disable indent */
-  /* eslint-disable @typescript-eslint/indent */
   left: TLeft,
   right: TRight,
   op: TOp
 ): CombineParamsResult<TLeft, TRight, TOp> => `${left} ${op} ${right}`
-/* eslint-enable indent */
-/* eslint-enable @typescript-eslint/indent */
 
 /**
  * @api private

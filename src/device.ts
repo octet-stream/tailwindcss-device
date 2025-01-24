@@ -16,9 +16,9 @@ interface PluginDeviceOptions {
    * 1. Add prefix to plugin config:
    *
    * ```ts
-   * const device = require("tailwindcss-device")
+   * import device from "tailwindcss-device"
    *
-   * module.exports = {
+   * export default {
    *   plugins: [
    *     device({prefix: "my-prefix"})
    *     // ...
@@ -54,9 +54,9 @@ interface PluginDeviceOptions {
  * 1. Add plugin to your `tailwind.config.js` plugins section:
  *
  * ```ts
- * const device = require("tailwindcss-device")
+ * import device from "tailwindcss-device"
  *
- * module.exports = {
+ * export default {
  *   plugins: [
  *     device
  *     // ...
