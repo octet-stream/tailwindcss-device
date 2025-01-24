@@ -1,4 +1,4 @@
-import {html} from "../utils/templates.js"
+import {html} from "../utils/templates.ts"
 
 export const input = html`
   <div class="device-touch:block hidden">

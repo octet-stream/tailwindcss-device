@@ -7,7 +7,7 @@ import type {Config} from "tailwindcss"
 import type plugin from "tailwindcss/plugin.js"
 import {test} from "vitest"
 
-import {css} from "../utils/templates.js"
+import {css} from "../utils/templates.ts"
 
 export type Plugin<TOptions extends Record<PropertyKey, unknown>> =
   | ReturnType<typeof plugin.withOptions<TOptions>>

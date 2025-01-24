@@ -1,14 +1,14 @@
 import {expect} from "vitest"
 
-import {pluginTest} from "../fixtures/tailwind.js"
-import {isAtRule} from "../utils/isAtRule.js"
-import {html} from "../utils/templates.js"
+import {pluginTest} from "../fixtures/tailwind.ts"
+import {isAtRule} from "../utils/isAtRule.ts"
+import {html} from "../utils/templates.ts"
 
-import {entries} from "../../src/entries.js"
-import {withPrefix} from "../../src/prefix.js"
-import {variants} from "../../src/variants.js"
+import {entries} from "../../src/entries.ts"
+import {withPrefix} from "../../src/prefix.ts"
+import {variants} from "../../src/variants.ts"
 
-import plugin from "../../src/device.js"
+import plugin from "../../src/device.ts"
 
 const variantsEntries = entries(variants)
 const variantsWithPrefix = Object.fromEntries(

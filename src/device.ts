@@ -1,9 +1,9 @@
 import postcss from "postcss"
 import plugin from "tailwindcss/plugin.js"
 
-import {entries} from "./entries.js"
-import {withPrefix} from "./prefix.js"
-import {variants} from "./variants.js"
+import {entries} from "./entries.ts"
+import {withPrefix} from "./prefix.ts"
+import {variants} from "./variants.ts"
 
 interface PluginDeviceOptions {
   /**

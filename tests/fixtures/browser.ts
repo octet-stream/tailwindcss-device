@@ -1,7 +1,7 @@
 import {type Locator, page} from "@vitest/browser/context"
 import {test} from "vitest"
 
-import {parse} from "../utils/parse.js"
+import {parse} from "../utils/parse.ts"
 
 import "./tailwind.css"
 
