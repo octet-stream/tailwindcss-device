@@ -9,16 +9,16 @@ devDependencies:
     specifier: 1.9.4
     version: 1.9.4
   '@changesets/changelog-github':
-    specifier: ^0.5.0
+    specifier: 0.5.0
     version: 0.5.0
   '@changesets/cli':
-    specifier: ^2.27.11
+    specifier: 2.27.11
     version: 2.27.11
   '@types/node':
     specifier: 22.10.10
     version: 22.10.10
   '@vitest/browser':
-    specifier: ^3.0.4
+    specifier: 3.0.4
     version: 3.0.4(@types/node@22.10.10)(playwright@1.50.0)(typescript@5.7.3)(vitest@3.0.4)
   '@vitest/coverage-istanbul':
     specifier: 3.0.4
@@ -27,7 +27,7 @@ devDependencies:
     specifier: 3.0.4
     version: 3.0.4(vitest@3.0.4)
   cross-env:
-    specifier: ^7.0.3
+    specifier: 7.0.3
     version: 7.0.3
   dedent:
     specifier: 1.5.3
@@ -45,7 +45,7 @@ devDependencies:
     specifier: 9.1.7
     version: 9.1.7
   playwright:
-    specifier: ^1.50.0
+    specifier: 1.50.0
     version: 1.50.0
   postcss:
     specifier: 8.5.1
@@ -1545,7 +1545,7 @@ packages:
     engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
     hasBin: true
     dependencies:
-      cross-spawn: 7.0.3
+      cross-spawn: 7.0.6
     dev: true
 
   /cross-spawn@7.0.3:
