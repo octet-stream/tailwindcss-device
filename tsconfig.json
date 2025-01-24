@@ -13,6 +13,7 @@
     "allowSyntheticDefaultImports": true,
     "outDir": "lib",
     "removeComments": true,
-    "noEmit": true
+    "noEmit": true,
+    "skipLibCheck": true
   }
 }
