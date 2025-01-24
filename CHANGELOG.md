@@ -1,5 +1,13 @@
 # tailwindcss-device
 
+## 0.4.0
+
+### Minor Changes
+
+- [`cec1fcf`](https://github.com/octet-stream/tailwindcss-device/commit/cec1fcfc6894d4367e78db7ef11e83f7336604af) Thanks [@octet-stream](https://github.com/octet-stream)! - Add files field to package.json
+
+- [`cec1fcf`](https://github.com/octet-stream/tailwindcss-device/commit/cec1fcfc6894d4367e78db7ef11e83f7336604af) Thanks [@octet-stream](https://github.com/octet-stream)! - Use ESM in documentation examples
+
 ## 0.3.0
 
 ### Minor Changes

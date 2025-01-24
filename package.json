@@ -2,7 +2,7 @@
   "type": "module",
   "name": "tailwindcss-device",
   "description": "TailwindCSS plugin to add variants for input device detection using `@media` queries",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Nick K.",
   "license": "MIT",
   "repository": {
@@ -13,7 +13,9 @@
   "engines": {
     "node": ">= 18"
   },
-  "files": ["lib"],
+  "files": [
+    "lib"
+  ],
   "main": "./lib/device.js",
   "types": "./lib/device.d.ts",
   "exports": {
@@ -37,10 +39,17 @@
     "prepare": "npx --yes is-in-ci || husky",
     "prepublishOnly": "pnpm build"
   },
-  "keywords": ["tailwindcss", "plugin", "postcss", "media-queries"],
+  "keywords": [
+    "tailwindcss",
+    "plugin",
+    "postcss",
+    "media-queries"
+  ],
   "pnpm": {
     "updateConfig": {
-      "ignoreDependencies": ["tailwindcss"]
+      "ignoreDependencies": [
+        "tailwindcss"
+      ]
     }
   },
   "devDependencies": {
