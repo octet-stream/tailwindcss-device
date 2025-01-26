@@ -1,5 +1,5 @@
-// This file generates plugin code into .css files, so it can be consumed by TailwindCSS 4.
-// Do not use it outside of Tailwind CSS
+// This file generates plugin code into .css files, so the plugin can be consumed by Tailwindcss 4.
+// Do not use it outside of Tailwindcss
 
 import {writeFile} from "node:fs/promises"
 import {join} from "node:path"
