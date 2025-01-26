@@ -1,6 +1,6 @@
-import postcss from "postcss"
 import plugin from "tailwindcss/plugin.js"
 
+import {createVariantMediaQuery} from "./css.ts"
 import {entries} from "./entries.ts"
 import {withPrefix} from "./prefix.ts"
 import {variants} from "./variants.ts"
@@ -84,7 +84,7 @@ const device = plugin.withOptions<PluginDeviceOptions>(
         addVariant(
           withPrefix(name, options.prefix),
 
-          postcss.atRule({name: "media", params}).toString()
+          createVariantMediaQuery(params).toString()
         )
       )
     }

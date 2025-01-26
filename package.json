@@ -13,25 +13,27 @@
   "engines": {
     "node": ">= 18"
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib", "index.css"],
   "main": "./lib/device.js",
   "types": "./lib/device.d.ts",
+  "style": "./lib/device.css",
   "exports": {
-    "import": {
-      "types": "./lib/device.d.ts",
-      "default": "./lib/device.js"
+    ".": {
+      "import": {
+        "types": "./lib/device.d.ts",
+        "default": "./lib/device.js"
+      },
+      "require": {
+        "types": "./lib/device.d.cts",
+        "default": "./lib/device.cjs"
+      }
     },
-    "require": {
-      "types": "./lib/device.d.cts",
-      "default": "./lib/device.cjs"
-    }
+    "./package.json": "./package.json"
   },
   "scripts": {
     "lint-staged": "pnpm lint-staged",
     "test": "vitest run",
-    "build": "del-cli lib && tsup",
+    "build": "del-cli lib && tsup && node generate.ts",
     "coverage": "c8 pnpm test:unit",
     "ci": "vitest run --coverage",
     "release": "pnpm build && changeset publish",
@@ -39,17 +41,10 @@
     "prepare": "npx --yes is-in-ci || husky",
     "prepublishOnly": "pnpm build"
   },
-  "keywords": [
-    "tailwindcss",
-    "plugin",
-    "postcss",
-    "media-queries"
-  ],
+  "keywords": ["tailwindcss", "plugin", "postcss", "media-queries"],
   "pnpm": {
     "updateConfig": {
-      "ignoreDependencies": [
-        "tailwindcss"
-      ]
+      "ignoreDependencies": ["tailwindcss"]
     }
   },
   "devDependencies": {

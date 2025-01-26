@@ -13,8 +13,4 @@ __screenshots__
 *.junit.xml
 
 /lib
-/.e2e-results/
-/test-results
-/playwright-report/
-/playwright/.cache/
-/vitest-example
+/index.css
