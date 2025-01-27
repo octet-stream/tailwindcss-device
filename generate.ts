@@ -4,7 +4,7 @@
 import {writeFile} from "node:fs/promises"
 import {join} from "node:path"
 
-import {plugin} from "./src/css.ts"
+import {plugin} from "./src/css/plugin.ts"
 
 // Write plugin styles
 await Promise.all(

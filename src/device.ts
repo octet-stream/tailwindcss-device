@@ -1,6 +1,6 @@
 import plugin from "tailwindcss/plugin.js"
 
-import {createVariantMediaQuery} from "./css.ts"
+import {createVariantMediaQuery} from "./css/media.ts"
 import {entries} from "./entries.ts"
 import {withPrefix} from "./prefix.ts"
 import {variants} from "./variants.ts"

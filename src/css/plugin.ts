@@ -1,17 +1,9 @@
 import postcss from "postcss"
 
-import {entries} from "./entries.ts"
-import {withPrefix} from "./prefix.ts"
-import {variants} from "./variants.ts"
-
-export const createVariantMediaQuery = (params: string) =>
-  postcss.atRule({
-    params,
-    name: "media",
-    raws: {
-      semicolon: true // This will add semicolon after @slot directive
-    }
-  })
+import {entries} from "../entries.ts"
+import {withPrefix} from "../prefix.ts"
+import {variants} from "../variants.ts"
+import {createVariantMediaQuery} from "./media.ts"
 
 export const plugin = postcss
   .root({raws: {indent: "  ", after: "\r"}})
