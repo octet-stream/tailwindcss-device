@@ -13,7 +13,7 @@ export const plugin = postcss
   .append(
     entries(variants).map(([name, params]) => {
       const variant = postcss.atRule({
-        name: "custom-variant", // Creates @custom-variant directive. See: https://tailwindcss.com/docs/functions-and-directives#custom-variant-directive
+        name: "custom-variant", // Creates `@custom-variant` directive. See: https://tailwindcss.com/docs/functions-and-directives#custom-variant-directive
         params: withPrefix(name)
       })
 
