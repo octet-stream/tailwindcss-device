@@ -18,9 +18,8 @@ export const plugin = postcss
       })
 
       const media = createVariantMediaQuery(params)
-      const slot = postcss.atRule({name: "slot"}) // Creates @slot directive
 
-      media.append(slot)
+      media.append({name: "slot"}) // Add `@slot` directive within `@media`
       variant.append(media)
 
       return variant
