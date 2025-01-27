@@ -1,14 +1,19 @@
-// This file generates plugin code into .css files, so the plugin can be consumed by Tailwindcss 4.
-// Do not use it outside of Tailwindcss
+// This file generates plugin code into .css files,
+// so it can be consumed by Tailwindcss 4 via the `@import` directive.
 
 import {writeFile} from "node:fs/promises"
 import {join} from "node:path"
+import {styleText} from "node:util"
 
 import {plugin} from "./src/css/plugin.ts"
 
 // Write plugin styles
 await Promise.all(
-  ["lib/device.css", "index.css"]
-    .map(filename => join(import.meta.dirname, filename))
-    .map(path => writeFile(path, plugin))
+  ["lib/device.css", "index.css"].map(async filename => {
+    const path = join(import.meta.dirname, filename)
+
+    console.log(`${styleText("blue", "PLUGIN")} Writing CSS output to ${path}`)
+
+    await writeFile(path, plugin)
+  })
 )
