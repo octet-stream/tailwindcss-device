@@ -33,7 +33,7 @@
   "scripts": {
     "lint-staged": "pnpm lint-staged",
     "test": "vitest run",
-    "build": "del-cli lib && tsup && node generate.ts",
+    "build": "del-cli lib && tsup-node && node generate.ts",
     "coverage": "c8 pnpm test:unit",
     "ci": "vitest run --coverage",
     "release": "pnpm build && changeset publish",
