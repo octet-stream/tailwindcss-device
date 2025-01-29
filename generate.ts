@@ -3,7 +3,8 @@
 
 import {writeFile} from "node:fs/promises"
 import {join} from "node:path"
-import {styleText} from "node:util"
+
+import colors from "picocolors"
 
 import {plugin} from "./src/css/plugin.ts"
 
@@ -12,7 +13,7 @@ await Promise.all(
   ["lib/device.css", "index.css"].map(async filename => {
     const path = join(import.meta.dirname, filename)
 
-    console.log(`${styleText("blue", "PLUGIN")} Writing CSS output to ${path}`)
+    console.log(`${colors.blue("PLUGIN")} Writing CSS output to ${path}`)
 
     await writeFile(path, plugin)
   })
