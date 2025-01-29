@@ -1,5 +1,11 @@
 # tailwindcss-device
 
+## 1.0.0
+
+### Major Changes
+
+- [#10](https://github.com/octet-stream/tailwindcss-device/pull/10) [`7e703d6`](https://github.com/octet-stream/tailwindcss-device/commit/7e703d6c8e8d959030580acecaf0b8fc825582f6) Thanks [@octet-stream](https://github.com/octet-stream)! - Add CSS version of the plugin for Tailwindcss v4
+
 ## 0.4.0
 
 ### Minor Changes
