@@ -24,6 +24,30 @@ yarn add -D tailwindcss-device
 
 ### Usage
 
+The plugin comes in two versions: One is CSS and meant for tailwind
+
+#### With v4
+
+There're two options for v4:
+
+1. Add plugin to your `tailwind.css` file using the `@import` directive, like this:
+
+```css
+@import "tailwindcss";
+
+@import "tailwindcss-device"; /* <- This will import CSS version of the plugin */
+```
+
+2. Or use its JavaScript version via `@plugin` directive:
+
+```css
+@import "tailwindcss";
+
+@plugin "tailwindcss-device"; /* <- This will use legacy JavaScript version */
+```
+
+#### With v3
+
 1. Add plugin to your `tailwind.config.js` plugins section:
 
 ```ts

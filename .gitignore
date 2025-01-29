@@ -7,14 +7,13 @@ npm-debug.log
 node_modules
 coverage
 
+# tsimp cache
+/.tsimp
+
 # Screenshots from Vitest Browser Mode
 __screenshots__
 
 *.junit.xml
 
 /lib
-/.e2e-results/
-/test-results
-/playwright-report/
-/playwright/.cache/
-/vitest-example
+/index.css

@@ -13,45 +13,38 @@
   "engines": {
     "node": ">= 18"
   },
-  "files": [
-    "lib"
-  ],
-  "main": "./lib/device.js",
-  "types": "./lib/device.d.ts",
+  "files": ["lib", "index.css"],
+  "types": "./lib/device.d.cts",
+  "main": "./lib/device.cjs",
+  "style": "./lib/device.css",
   "exports": {
-    "import": {
-      "types": "./lib/device.d.ts",
-      "default": "./lib/device.js"
+    ".": {
+      "style": "./lib/device.css",
+      "import": {
+        "types": "./lib/device.d.ts",
+        "default": "./lib/device.js"
+      },
+      "require": {
+        "types": "./lib/device.d.cts",
+        "default": "./lib/device.cjs"
+      }
     },
-    "require": {
-      "types": "./lib/device.d.cts",
-      "default": "./lib/device.cjs"
-    }
+    "./package.json": "./package.json",
+    "./index.css": "./index.css",
+    "./index": "./index.css"
   },
   "scripts": {
     "lint-staged": "pnpm lint-staged",
-    "test": "vitest run",
-    "build": "del-cli lib && tsup",
+    "test": "pnpm build && vitest run",
+    "build": "del-cli lib index.css && tsup-node && tsimp generate.ts",
     "coverage": "c8 pnpm test:unit",
-    "ci": "vitest run --coverage",
+    "ci": "pnpm build && vitest run --coverage",
     "release": "pnpm build && changeset publish",
     "preinstall": "npx --yes only-allow pnpm",
     "prepare": "npx --yes is-in-ci || husky",
     "prepublishOnly": "pnpm build"
   },
-  "keywords": [
-    "tailwindcss",
-    "plugin",
-    "postcss",
-    "media-queries"
-  ],
-  "pnpm": {
-    "updateConfig": {
-      "ignoreDependencies": [
-        "tailwindcss"
-      ]
-    }
-  },
+  "keywords": ["tailwindcss", "plugin", "postcss", "media-queries"],
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@changesets/changelog-github": "0.5.0",
@@ -59,6 +52,8 @@
     "@commitlint/cli": "19.6.1",
     "@commitlint/config-conventional": "19.6.0",
     "@commitlint/types": "19.5.0",
+    "@styled/typescript-styled-plugin": "1.0.1",
+    "@tailwindcss/postcss": "4.0.0",
     "@types/node": "22.10.10",
     "@vitest/browser": "3.0.4",
     "@vitest/coverage-istanbul": "3.0.4",
@@ -69,10 +64,12 @@
     "hast-util-from-html": "2.0.3",
     "hast-util-to-dom": "4.0.0",
     "husky": "9.1.7",
+    "picocolors": "1.1.1",
     "playwright": "1.50.0",
     "postcss": "8.5.1",
     "postcss-load-config": "6.0.1",
-    "tailwindcss": "3.4.17",
+    "tailwindcss": "4.0.0",
+    "tsimp": "2.0.12",
     "tsup": "8.3.5",
     "typescript": "5.7.3",
     "vitest": "3.0.4"
