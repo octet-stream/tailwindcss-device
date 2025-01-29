@@ -3,8 +3,6 @@ import {test} from "vitest"
 
 import {parse} from "../utils/parse.ts"
 
-import "./tailwind.css"
-
 interface RenderFuction {
   (html: string): Locator
 }

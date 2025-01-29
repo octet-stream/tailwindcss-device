@@ -14,6 +14,12 @@
     "outDir": "lib",
     "removeComments": true,
     "noEmit": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "plugins": [
+      {
+        "name": "@styled/typescript-styled-plugin",
+        "validate": false
+      }
+    ]
   }
 }

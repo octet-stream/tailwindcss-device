@@ -1,65 +1,68 @@
-import {expect} from "vitest"
+import {expect, test} from "vitest"
 
-import {pluginTest} from "../fixtures/tailwind.ts"
-import {isAtRule} from "../utils/isAtRule.ts"
-import {html} from "../utils/templates.ts"
+import postcss from "postcss"
+import type createPlugin from "tailwindcss/plugin"
+
+import plugin from "../../src/device.ts"
 
 import {entries} from "../../src/entries.ts"
 import {withPrefix} from "../../src/prefix.ts"
 import {variants} from "../../src/variants.ts"
 
-import plugin from "../../src/device.ts"
+// biome-ignore lint/suspicious/noExplicitAny: Disabled for noop function
+const noop = (): any => {}
 
-const variantsEntries = entries(variants)
-const variantsWithPrefix = Object.fromEntries(
-  variantsEntries.map(([name, value]) => [withPrefix(name), value])
-)
+type PluginAPI = Parameters<Parameters<typeof createPlugin>[0]>[0]
 
-interface TailwindRaws {
-  candidate: string
-  parentLayer: "utilities"
-  layer: "variants"
+const noopPluginApi: PluginAPI = {
+  addBase: noop,
+  addComponents: noop,
+  addUtilities: noop,
+  theme: noop,
+  matchComponents: noop,
+  matchUtilities: noop,
+  matchVariant: noop,
+  config: noop,
+  prefix: noop,
+  addVariant() {
+    throw new Error("Provide actual implementation for tests")
+  }
 }
 
-pluginTest("applies variants", async ({transform}) => {
-  expect.assertions(variantsEntries.length)
+test("adds variants", () => {
+  const expected = entries(variants).map(([name, params]) => [
+    withPrefix(name),
+    postcss.atRule({name: "media", params}).toString()
+  ])
 
-  const results = await Promise.all(
-    variantsEntries.map(([variant]) =>
-      transform(
-        plugin,
+  const actual: [name: string, atRule: string][] = []
 
-        html`
-        <div class="hidden ${withPrefix(variant)}:block">
-          Hello! I'm only visible with ${variant} device variant!
-        </div>
-      `
-      )
-    )
-  )
+  plugin().handler({
+    ...noopPluginApi,
+    addVariant(name, variant) {
+      actual.push([name, variant as string])
+    }
+  })
 
-  results
-    .flatMap(result => result.root.nodes.filter(isAtRule))
-    .forEach(actual => {
-      const [name] = (actual.raws.tailwind as TailwindRaws).candidate.split(":")
-      const expected = variantsWithPrefix[name]
-
-      expect(actual.params).toBe(expected)
-    })
+  expect(actual).toEqual(expected)
 })
 
-pluginTest("supports custom prefix", async ({transform}) => {
-  const expected = "custom-device-prefix"
+test("supports custom prefix", () => {
+  const prefix = "test"
 
-  const input = html`
-    <div class="hidden ${withPrefix("touch", expected)}:block">Test</div>
-  `
+  const expected = entries(variants).map(([name, params]) => [
+    withPrefix(name, prefix),
+    postcss.atRule({name: "media", params}).toString()
+  ])
 
-  const result = await transform(plugin({prefix: expected}), input)
+  const actual: [name: string, atRule: string][] = []
 
-  const [rule] = result.root.nodes.filter(isAtRule)
+  plugin({prefix}).handler({
+    ...noopPluginApi,
+    addVariant(name, variant) {
+      actual.push([name, variant as string])
+    }
+  })
 
-  const actual = (rule?.raws?.tailwind as TailwindRaws)?.candidate
-
-  expect(actual?.startsWith(expected)).toBe(true)
+  expect(actual).toEqual(expected)
 })

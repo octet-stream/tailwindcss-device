@@ -7,5 +7,8 @@
     }
   },
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "files.associations": {
+    "{legacy,legacy-config,tailwind}.css": "tailwindcss"
+  }
 }

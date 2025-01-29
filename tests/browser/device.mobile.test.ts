@@ -1,18 +1,3 @@
-import {expect} from "vitest"
+import "../fixtures/tailwind.css"
 
-import {test} from "../fixtures/browser.ts"
-import {input} from "../fixtures/sharedHtmlInput.ts"
-
-test("mobile element is visible", async ({render}) => {
-  const locator = render(input)
-
-  await expect.element(locator.getByText("Hello from mobile")).toBeVisible()
-})
-
-test("desktop element is hidden", async ({render}) => {
-  const locator = render(input)
-
-  await expect
-    .element(locator.getByText("Hello from desktop"))
-    .not.toBeVisible()
-})
+import "./mobile.ts"
